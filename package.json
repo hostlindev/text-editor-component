@@ -1,0 +1,99 @@
+{
+  "name": "vue-vuetify-pdf-designer",
+  "version": "0.1.0",
+  "description": "Office-style PDF design surface for Vue 3 + Vuetify 3: rich text boxes, images and shapes positioned on physical pages and exported as JSON or print-ready HTML.",
+  "keywords": [
+    "vue",
+    "vuetify",
+    "pdf",
+    "designer",
+    "editor",
+    "tiptap",
+    "a4",
+    "print"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-vuetify-pdf-designer.cjs",
+  "module": "./dist/vue-vuetify-pdf-designer.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/vue-vuetify-pdf-designer.js",
+      "require": "./dist/vue-vuetify-pdf-designer.cjs"
+    },
+    "./style.css": "./dist/vue-vuetify-pdf-designer.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "run-s \"lint:*\"",
+    "lint:oxlint": "oxlint . --fix",
+    "lint:eslint": "eslint . --fix --cache",
+    "format": "prettier --write --experimental-cli src/ playground/"
+  },
+  "peerDependencies": {
+    "@tiptap/extension-highlight": "^3.0.0",
+    "@tiptap/extension-subscript": "^3.0.0",
+    "@tiptap/extension-superscript": "^3.0.0",
+    "@tiptap/extension-text-align": "^3.0.0",
+    "@tiptap/extension-text-style": "^3.0.0",
+    "@tiptap/pm": "^3.0.0",
+    "@tiptap/starter-kit": "^3.0.0",
+    "@tiptap/vue-3": "^3.0.0",
+    "vue": "^3.5.0",
+    "vuetify": "^3.10.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@mdi/font": "^7.4.47",
+    "@tiptap/extension-highlight": "^3.32.0",
+    "@tiptap/extension-subscript": "^3.32.0",
+    "@tiptap/extension-superscript": "^3.32.0",
+    "@tiptap/extension-text-align": "^3.32.0",
+    "@tiptap/extension-text-style": "^3.32.0",
+    "@tiptap/pm": "^3.32.0",
+    "@tiptap/starter-kit": "^3.32.0",
+    "@tiptap/vue-3": "^3.32.0",
+    "@tsconfig/node24": "^24.0.5",
+    "@types/node": "^24.13.4",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "@vue/test-utils": "^2.5.1",
+    "@vue/tsconfig": "^0.9.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-oxlint": "~1.82.0",
+    "eslint-plugin-vue": "~10.11.0",
+    "happy-dom": "^21.0.4",
+    "jiti": "^2.7.0",
+    "npm-run-all2": "^9.0.3",
+    "oxlint": "~1.82.0",
+    "prettier": "3.9.6",
+    "typescript": "~6.0.0",
+    "vite": "^8.2.2",
+    "vite-plugin-dts": "^5.1.2",
+    "vite-plugin-vue-devtools": "^8.2.1",
+    "vitest": "^5.0.5",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^3.3.11",
+    "vuetify": "^3.13.7"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
+}
