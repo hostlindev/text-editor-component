@@ -138,25 +138,25 @@ change emits a brand-new document, so plain `v-model` or a store both work.
   inspector field it only dismisses that control and keeps the element selected.
   On the canvas it ends edit mode and clears the selection.
 - **Layers step one position per click.** Each row of the layers panel carries
-  *Subir una capa* / *Bajar una capa*; the button at the top or bottom of the
-  stack is disabled. *Traer al frente* / *Enviar al fondo* live in the ribbon and
+  _Subir una capa_ / _Bajar una capa_; the button at the top or bottom of the
+  stack is disabled. _Traer al frente_ / _Enviar al fondo_ live in the ribbon and
   in the context menu.
 - **Right click opens a context menu.** Over an element it offers the layer steps,
   the jumps, duplicate, lock and delete; over empty page space it offers the four
-  insert commands and *Ajustes de página*. Right-clicking an unselected element
+  insert commands and _Ajustes de página_. Right-clicking an unselected element
   selects it first, `Escape` closes the menu without dropping the selection, and
   right-clicking inside a text box, a form field or an open overlay still shows
   the browser's own menu (paste and spellcheck).
 - **Thumbnails follow the document.** A rail on the right shows a live miniature
   of every page with the active one highlighted; clicking a miniature focuses
   that page. It is the real page — same fonts, colours and rotations — rendered
-  read-only, and the *Vista* tab toggles it.
+  read-only, and the _Vista_ tab toggles it.
 
 ## Layout
 
 The editor fills its container, so that container needs a definite height — and
 it must **not** be rendered underneath a fixed app bar. The editor draws its own
-ribbon at the top; if a host app bar overlaps it, the *Insertar* tab cannot be
+ribbon at the top; if a host app bar overlaps it, the _Insertar_ tab cannot be
 clicked and no element can be added. Inside `VApp`, use `VMain`, which reserves
 the app-bar height:
 
@@ -202,17 +202,17 @@ of them from your own stylesheet to match a brand without touching the library:
 }
 ```
 
-| Token | Purpose |
-| --- | --- |
-| `--pdf-accent` | Selection, active rows, focus and primary actions |
-| `--pdf-accent-soft` / `--pdf-accent-line` | Tinted backgrounds and borders derived from the accent |
-| `--pdf-surface` / `--pdf-surface-muted` | Ribbon, sidebar and inspector surfaces |
-| `--pdf-canvas` / `--pdf-canvas-deep` | Workspace wash around the sheet |
-| `--pdf-line` / `--pdf-line-strong` | Hairlines, separators, field outlines |
-| `--pdf-ink` / `--pdf-ink-muted` | Primary and secondary text |
-| `--pdf-radius` / `--pdf-radius-sm` | Card and control rounding |
-| `--pdf-shadow-sheet` / `--pdf-shadow-float` | Sheet elevation and floating pills |
-| `--pdf-font` | UI typeface (document fonts stay per-element) |
+| Token                                       | Purpose                                                |
+| ------------------------------------------- | ------------------------------------------------------ |
+| `--pdf-accent`                              | Selection, active rows, focus and primary actions      |
+| `--pdf-accent-soft` / `--pdf-accent-line`   | Tinted backgrounds and borders derived from the accent |
+| `--pdf-surface` / `--pdf-surface-muted`     | Ribbon, sidebar and inspector surfaces                 |
+| `--pdf-canvas` / `--pdf-canvas-deep`        | Workspace wash around the sheet                        |
+| `--pdf-line` / `--pdf-line-strong`          | Hairlines, separators, field outlines                  |
+| `--pdf-ink` / `--pdf-ink-muted`             | Primary and secondary text                             |
+| `--pdf-radius` / `--pdf-radius-sm`          | Card and control rounding                              |
+| `--pdf-shadow-sheet` / `--pdf-shadow-float` | Sheet elevation and floating pills                     |
+| `--pdf-font`                                | UI typeface (document fonts stay per-element)          |
 
 By default `--pdf-accent` follows the Vuetify theme (`rgb(var(--v-theme-primary))`),
 and `--pdf-surface` follows `--v-theme-surface`. Under `.v-theme--dark` the editor
@@ -222,27 +222,27 @@ uses these tokens.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `modelValue` | `PdfDocumentSchema` | — | The document to render. Required. |
-| `availableFonts` | `Array<FontDescriptor \| string>` | `[]` | Families offered by the ribbon. `{ family, sourceUrl?, weights? }` loads a self-hosted `@font-face`; a plain name loads Google Fonts. |
-| `readOnly` | `boolean` | `false` | Hides the ribbon and blocks every mutation. Imported/loaded documents still render through the same page model. |
-| `uploadImageHandler` | `(file: File) => Promise<string> \| string` | — | Uploads the picked image and returns a URL. Without it, images are inlined as data URLs up to `maxInlineImageBytes`. |
-| `variables` | `Record<string, string \| number \| boolean \| null>` | `{}` | Values for `{{campo}}` placeholders at export time. |
-| `title` | `string` | `'Document'` | Document title used by the HTML export and download filename. |
-| `initialZoom` | `number` | `1` | Initial zoom, clamped to `0.5`–`2`. |
-| `showRulers` / `showGrid` / `showMarginGuides` / `showPreview` | `boolean` | `true` / `false` / `false` / `true` | Initial visibility of the view aids (all togglable in the *Vista* tab). `showPreview` is the thumbnail rail. |
-| `historyLimit` | `number` | `100` | Maximum undo snapshots. |
-| `maxInlineImageBytes` | `number` | `2000000` | Size guard for inline base64 images. Above it, `upload-error` is emitted instead of bloating the JSON. |
+| Prop                                                           | Type                                                  | Default                             | Description                                                                                                                           |
+| -------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `modelValue`                                                   | `PdfDocumentSchema`                                   | —                                   | The document to render. Required.                                                                                                     |
+| `availableFonts`                                               | `Array<FontDescriptor \| string>`                     | `[]`                                | Families offered by the ribbon. `{ family, sourceUrl?, weights? }` loads a self-hosted `@font-face`; a plain name loads Google Fonts. |
+| `readOnly`                                                     | `boolean`                                             | `false`                             | Hides the ribbon and blocks every mutation. Imported/loaded documents still render through the same page model.                       |
+| `uploadImageHandler`                                           | `(file: File) => Promise<string> \| string`           | —                                   | Uploads the picked image and returns a URL. Without it, images are inlined as data URLs up to `maxInlineImageBytes`.                  |
+| `variables`                                                    | `Record<string, string \| number \| boolean \| null>` | `{}`                                | Values for `{{campo}}` placeholders at export time.                                                                                   |
+| `title`                                                        | `string`                                              | `'Document'`                        | Document title used by the HTML export and download filename.                                                                         |
+| `initialZoom`                                                  | `number`                                              | `1`                                 | Initial zoom, clamped to `0.5`–`2`.                                                                                                   |
+| `showRulers` / `showGrid` / `showMarginGuides` / `showPreview` | `boolean`                                             | `true` / `false` / `false` / `true` | Initial visibility of the view aids (all togglable in the _Vista_ tab). `showPreview` is the thumbnail rail.                          |
+| `historyLimit`                                                 | `number`                                              | `100`                               | Maximum undo snapshots.                                                                                                               |
+| `maxInlineImageBytes`                                          | `number`                                              | `2000000`                           | Size guard for inline base64 images. Above it, `upload-error` is emitted instead of bloating the JSON.                                |
 
 ## Emits
 
-| Event | Payload | When |
-| --- | --- | --- |
-| `update:modelValue` | `PdfDocumentSchema` | Every document mutation. |
-| `change` | `PdfDocumentSchema` | Same payload, for `@change` listeners. |
-| `export-pdf` | `ExportPdfPayload` | After calling `exportPdf()`. |
-| `upload-error` | `(file: File, error: unknown)` | Image upload or inline-size guard failure. |
+| Event               | Payload                        | When                                       |
+| ------------------- | ------------------------------ | ------------------------------------------ |
+| `update:modelValue` | `PdfDocumentSchema`            | Every document mutation.                   |
+| `change`            | `PdfDocumentSchema`            | Same payload, for `@change` listeners.     |
+| `export-pdf`        | `ExportPdfPayload`             | After calling `exportPdf()`.               |
+| `upload-error`      | `(file: File, error: unknown)` | Image upload or inline-size guard failure. |
 
 ## Exposed methods
 
@@ -252,17 +252,17 @@ Access them through a template ref:
 const editor = ref<InstanceType<typeof PdfOfficeEditor> | null>(null)
 ```
 
-| Method | Description |
-| --- | --- |
-| `exportPdf(format?: 'html' \| 'json')` | Builds and emits `export-pdf`; returns the payload. |
-| `downloadHtml(filename?)` | Triggers a browser download of the standalone HTML. |
-| `printPdf()` | Opens the browser print dialog using the same HTML (client-side PDF). |
-| `insertText()` / `insertTable()` / `insertShape(kind)` | Inserts an element at the next cascading position. |
-| `pickImage()` | Opens the image file picker. |
-| `undo()` / `redo()` | History control. |
-| `addPage()` | Appends an empty page and focuses it. |
-| `setZoom(value)` | Sets zoom, clamped to `0.5`–`2`. |
-| `state` | The full editor state (`useEditorState` shape) for advanced integrations. |
+| Method                                                 | Description                                                               |
+| ------------------------------------------------------ | ------------------------------------------------------------------------- |
+| `exportPdf(format?: 'html' \| 'json')`                 | Builds and emits `export-pdf`; returns the payload.                       |
+| `downloadHtml(filename?)`                              | Triggers a browser download of the standalone HTML.                       |
+| `printPdf()`                                           | Opens the browser print dialog using the same HTML (client-side PDF).     |
+| `insertText()` / `insertTable()` / `insertShape(kind)` | Inserts an element at the next cascading position.                        |
+| `pickImage()`                                          | Opens the image file picker.                                              |
+| `undo()` / `redo()`                                    | History control.                                                          |
+| `addPage()`                                            | Appends an empty page and focuses it.                                     |
+| `setZoom(value)`                                       | Sets zoom, clamped to `0.5`–`2`.                                          |
+| `state`                                                | The full editor state (`useEditorState` shape) for advanced integrations. |
 
 ## Document schema
 
@@ -402,3 +402,7 @@ ribbon, canvas, layers panel, JSON view, HTML download and print.
 ## License
 
 MIT
+
+# text-editor-component
+
+Componente para diseño de documento dentro de una app de vue
